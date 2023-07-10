@@ -13,6 +13,6 @@ class Profile extends Model
     protected $fillable = [
         'code',
         'name',
-        'level' ,
+        'level',
     ];
 }
