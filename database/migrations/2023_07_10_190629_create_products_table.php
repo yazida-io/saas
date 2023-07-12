@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor('product_catalog_id')->constrained();
+            $table->foreignId('product_catalog_id')->constrained();
             $table->string('code')->unique();
             $table->string('name');
             $table->mediumText('description');
