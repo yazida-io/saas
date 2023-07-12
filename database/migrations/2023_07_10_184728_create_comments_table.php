@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('code');
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('post_it')->constrained();
+            $table->foreignId('post_id')->constrained();
             $table->text('content');
             $table->softDeletes();
             $table->timestamps();
