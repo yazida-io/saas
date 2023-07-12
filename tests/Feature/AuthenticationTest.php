@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\Contracts\AuthenticationContract;
 use Symfony\Component\HttpFoundation\Response;
 
 test('fail on validation', function () {
@@ -101,3 +102,26 @@ test('current user', function () {
     $response->assertStatus(Response::HTTP_OK);
     $response->assertJsonStructure(['name', 'email']);
 });
+
+
+test('verify user email', function () {
+    $password = fake()->password(minLength: 8);
+    $user = app(AuthenticationContract::class)->register([
+        'name' => fake()->name(),
+        'email' => fake()->email(),
+        'password' => $password,
+    ]);
+
+    $response = $this->postJson(
+        route('auth.login'),
+        ['email' => $user->email, 'password' => $password]
+    );
+
+    $response = $this->postJson(
+        route('verification.send'),
+        headers: ['Authorization' => "Bearer {$response->json('token')}"]
+    );
+
+    $response->assertStatus(Response::HTTP_OK);
+    $response->assertJsonStructure(['message']);
+})->only();

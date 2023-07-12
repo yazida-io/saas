@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthenticationController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
 Route::group(
@@ -17,3 +18,13 @@ Route::group(
             ->name('user');
     }
 );
+
+Route::get(
+    uri:'/email/verify/{id}/{hash}',
+    action: [AuthenticationController::class, 'verifyEmail']
+)->middleware(['signed'])->name('verification.verify');
+
+Route::post(
+    uri:'/email/verification-notification',
+    action: [AuthenticationController::class, 'resendVerificationEmail']
+)->middleware(['auth:sanctum', 'throttle:6,1'])->name('verification.send');

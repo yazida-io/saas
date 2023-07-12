@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Authentication\LoginRequest;
 use App\Http\Requests\Authentication\RegisterRequest;
-use App\Notifications\Welcome;
+use App\Http\Requests\EmailVerificationRequest;
 use App\Services\Contracts\AuthenticationContract;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,7 +25,7 @@ class AuthenticationController extends Controller
     {
         $user = $this->service->register($request->validated());
 
-        $user->notify(new Welcome());
+        event(new Registered($user));
 
         return response()->json(
             ['message' => 'User registered successfully'],
@@ -49,5 +50,19 @@ class AuthenticationController extends Controller
     public function me()
     {
         return response()->json(auth()->user(), Response::HTTP_OK);
+    }
+
+    public function verifyEmail(EmailVerificationRequest $request)
+    {
+        $request->fulfill();
+
+        return response()->json(['message' => 'Email verified successfully'], Response::HTTP_OK);
+    }
+
+    public function resendVerificationEmail(): JsonResponse
+    {
+        auth()->user()->sendEmailVerificationNotification();
+
+        return response()->json(['message' => 'Email verification link sent successfully'], Response::HTTP_OK);
     }
 }
