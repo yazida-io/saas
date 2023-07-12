@@ -28,3 +28,18 @@ Route::post(
     uri:'/email/verification-notification',
     action: [AuthenticationController::class, 'resendVerificationEmail']
 )->middleware(['auth:sanctum', 'throttle:6,1'])->name('verification.send');
+
+
+Route::post(
+    uri:'/forgot-password',
+    action: [AuthenticationController::class, 'forgotPassword']
+)->middleware('guest')->name('password.email');
+
+Route::get('/reset-password/{token}', function (string $token) {
+    return response()->json(['token' => $token]);
+})->middleware('guest')->name('password.reset');
+
+Route::post(
+    uri:'/update-password',
+    action: [AuthenticationController::class, 'updatePassword']
+)->middleware('guest')->name('password.update');

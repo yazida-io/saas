@@ -124,4 +124,30 @@ test('verify user email', function () {
 
     $response->assertStatus(Response::HTTP_OK);
     $response->assertJsonStructure(['message']);
-})->only();
+});
+
+test('request change password', function () {
+    $user = app(AuthenticationContract::class)->register([
+        'name' => fake()->name(),
+        'email' => fake()->email(),
+        'password' => fake()->password(minLength: 8),
+    ]);
+
+    $response = $this->postJson(route('password.email'), ['email' => $user->email]);
+    $response->assertStatus(Response::HTTP_OK);
+    $response->assertJsonStructure(['message']);
+});
+
+test('change password', function () {
+    $user = fake()->email();
+    $token = "token";
+    $response = $this->postJson(route('password.update'), [
+        'token' => $token,
+        'email' => $user,
+        'password' => 'new-password',
+        'password_confirmation' => 'new-password',
+    ]);
+
+    $response->assertStatus(Response::HTTP_OK);
+    $response->assertJsonStructure(['message']);
+})->skip("Find a way to mock the password broker");

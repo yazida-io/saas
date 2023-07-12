@@ -10,6 +10,7 @@ use App\Services\Contracts\AuthenticationContract;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
 use Symfony\Component\HttpFoundation\Response;
 
 class AuthenticationController extends Controller
@@ -64,5 +65,30 @@ class AuthenticationController extends Controller
         auth()->user()->sendEmailVerificationNotification();
 
         return response()->json(['message' => 'Email verification link sent successfully'], Response::HTTP_OK);
+    }
+
+    public function forgotPassword(Request $request): JsonResponse
+    {
+        $request->validate(['email' => 'required|email']);
+
+        $status = Password::sendResetLink($request->only('email'));
+
+        return response()->json(['message' => __($status)], Response::HTTP_OK);
+    }
+
+    public function updatePassword(Request $request): JsonResponse
+    {
+        $request->validate([
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed|min:8',
+        ]);
+
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            fn($user) => $user->update(['password' => $request->password])
+        );
+
+        return response()->json(['message' => __($status)], Response::HTTP_OK);
     }
 }
