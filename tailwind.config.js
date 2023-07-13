@@ -4,10 +4,16 @@ export default {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.ts",
-        "./resources/**/*.vue",
+        "./frontend/**/*.js",
+        "./frontend/**/*.ts",
+        "./frontend/**/*.vue",
     ],
     theme: {
-        extend: {},
+        extend: {
+            container: {
+                center: true,
+            }
+        },
     },
     plugins: [],
 }
