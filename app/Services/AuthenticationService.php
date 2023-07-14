@@ -27,13 +27,18 @@ class AuthenticationService implements AuthenticationContract
             throw new Exception('Invalid credentials');
         }
 
-        $token = $user->createToken('auth::token')->plainTextToken;
-
-        return ['user' => $user, 'token' => $token];
+        return $this->freshTokenInfoOf($user);
     }
 
     public function logout(User $user, string $token): bool
     {
         return $user->tokens()->where('token', $token)->delete();
+    }
+
+    public function freshTokenInfoOf(User $user): array
+    {
+        $token = $user->createToken('auth::token')->plainTextToken;
+
+        return ['user' => $user, 'token' => $token];
     }
 }

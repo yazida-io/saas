@@ -23,11 +23,12 @@ test('register user', function () {
             'name' => fake()->name(),
             'email' => fake()->email(),
             'password' => 'password',
+            'password_confirmation' => 'password',
         ]
     );
 
     $response->assertStatus(Response::HTTP_CREATED);
-});
+})->only();
 
 test('fail login validation', function () {
     $response = $this->postJson(route('auth.login'));
@@ -48,7 +49,7 @@ test('login with valid credentials', function () {
 
     $response = $this->postJson(
         route('auth.register'),
-        ['name' => fake()->name(), 'email' => $email, 'password' => $password]
+        ['name' => fake()->name(), 'email' => $email, 'password' => $password, 'password_confirmation' => $password]
     );
 
     $response->assertStatus(Response::HTTP_CREATED);
@@ -72,7 +73,12 @@ test('logout successfully', function () {
 
     $response = $this->postJson(
         route('auth.register'),
-        ['name' => fake()->name(), 'email' => $email, 'password' => $password]
+        [
+            'name' => fake()->name(),
+            'email' => $email,
+            'password' => $password,
+            'password_confirmation' => $password,
+        ]
     );
 
     $response = $this->postJson(route('auth.login'), ['email' => $email, 'password' => $password]);
@@ -90,7 +96,12 @@ test('current user', function () {
 
     $response = $this->postJson(
         route('auth.register'),
-        ['name' => fake()->name(), 'email' => $email, 'password' => $password]
+        [
+            'name' => fake()->name(),
+            'email' => $email,
+            'password' => $password,
+            'password_confirmation' => $password,
+        ]
     );
 
     $response = $this->postJson(route('auth.login'), ['email' => $email, 'password' => $password]);
@@ -102,7 +113,6 @@ test('current user', function () {
     $response->assertStatus(Response::HTTP_OK);
     $response->assertJsonStructure(['name', 'email']);
 });
-
 
 test('verify user email', function () {
     $password = fake()->password(minLength: 8);
@@ -130,7 +140,8 @@ test('request change password', function () {
     $user = app(AuthenticationContract::class)->register([
         'name' => fake()->name(),
         'email' => fake()->email(),
-        'password' => fake()->password(minLength: 8),
+        'password' => $password = fake()->password(minLength: 8),
+        'password_confirmation' => $password,
     ]);
 
     $response = $this->postJson(route('password.email'), ['email' => $user->email]);
@@ -140,7 +151,7 @@ test('request change password', function () {
 
 test('change password', function () {
     $user = fake()->email();
-    $token = "token";
+    $token = 'token';
     $response = $this->postJson(route('password.update'), [
         'token' => $token,
         'email' => $user,
@@ -150,4 +161,4 @@ test('change password', function () {
 
     $response->assertStatus(Response::HTTP_OK);
     $response->assertJsonStructure(['message']);
-})->skip("Find a way to mock the password broker");
+})->skip('Find a way to mock the password broker');

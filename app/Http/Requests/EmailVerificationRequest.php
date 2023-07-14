@@ -14,7 +14,7 @@ class EmailVerificationRequest extends \Illuminate\Foundation\Auth\EmailVerifica
 
         Auth::login(User::findOr(
             request()->route('id'),
-            fn() => abort(Response::HTTP_UNAUTHORIZED)
+            fn () => abort(Response::HTTP_UNAUTHORIZED)
         ));
     }
 }

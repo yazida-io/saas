@@ -1,6 +1,7 @@
 <script setup>
 import {reactive, ref} from "vue";
-import {$post} from "../../composables/useApi";
+import useAuthStore from "../../stores/useAuthStore";
+import {useRouter} from "vue-router";
 
 const form = reactive({
     name: 'Mouctar',
@@ -11,15 +12,15 @@ const form = reactive({
 
 const submitting = ref(false);
 
+const authStore = useAuthStore();
+
+const router = useRouter();
+
 const signUp = () => {
     submitting.value = true;
-    $post('register', form).then((data) => {
-        console.log(data)
-    }).finally(() => {
-        submitting.value = false;
-    }).catch((error) => {
-        console.log(error)
-    })
+    authStore.signUp(form)
+        .then(() => router.push({name: 'home'}))
+        .finally(() => (submitting.value = false))
 }
 
 </script>

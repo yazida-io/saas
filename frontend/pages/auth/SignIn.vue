@@ -1,23 +1,24 @@
 <script setup>
 import {reactive, ref} from "vue";
-import {$post} from "../../composables/useApi";
+import useAuthStore from "../../stores/useAuthStore";
+import {useRouter} from "vue-router";
+
+const router = useRouter();
 
 const form = reactive({
     email: 'mouctar@saas.test',
     password: 'mouctar@saas.test',
 });
 
+const authStore = useAuthStore();
+
 const submitting = ref(false);
 
 const signIn = () => {
     submitting.value = true;
-    $post('login', form).then((data) => {
-        console.log(data)
-    }).finally(() => {
-        submitting.value = false;
-    }).catch((error) => {
-        console.log(error)
-    })
+    authStore.signIn(form)
+        .then(() => router.push({name: 'home'}))
+        .finally(() => (submitting.value = false))
 }
 
 </script>

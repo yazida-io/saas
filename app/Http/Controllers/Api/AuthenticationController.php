@@ -29,7 +29,10 @@ class AuthenticationController extends Controller
         event(new Registered($user));
 
         return response()->json(
-            ['message' => 'User registered successfully'],
+            [
+                'message' => 'User registered successfully',
+                ...$this->service->freshTokenInfoOf($user),
+            ],
             Response::HTTP_CREATED
         );
     }
@@ -86,7 +89,7 @@ class AuthenticationController extends Controller
 
         $status = Password::reset(
             $request->only('email', 'password', 'password_confirmation', 'token'),
-            fn($user) => $user->update(['password' => $request->password])
+            fn ($user) => $user->update(['password' => $request->password])
         );
 
         return response()->json(['message' => __($status)], Response::HTTP_OK);

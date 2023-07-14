@@ -11,4 +11,6 @@ interface AuthenticationContract extends ServiceContract
     public function login(array $credentials): array;
 
     public function logout(User $user, string $token): bool;
+
+    public function freshTokenInfoOf(User $user): array;
 }
