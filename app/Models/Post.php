@@ -14,5 +14,6 @@ class Post extends Model
         'code',
         'title',
         'content',
+        'user_id',
     ];
 }

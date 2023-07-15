@@ -14,5 +14,6 @@ class PostCategory extends Model
         'name',
         'image',
         'color',
+        'user_id',
     ];
 }
