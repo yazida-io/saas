@@ -13,7 +13,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
     @vite('resources/css/app.css')
-    @vite('frontend/index.js')
+    @vite('frontend/index.ts')
 </head>
 <body>
 </body>

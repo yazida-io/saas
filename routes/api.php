@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Api\AuthenticationController;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
 Route::group(
@@ -20,18 +19,17 @@ Route::group(
 );
 
 Route::get(
-    uri:'/email/verify/{id}/{hash}',
+    uri: '/email/verify/{id}/{hash}',
     action: [AuthenticationController::class, 'verifyEmail']
 )->middleware(['signed'])->name('verification.verify');
 
 Route::post(
-    uri:'/email/verification-notification',
+    uri: '/email/verification-notification',
     action: [AuthenticationController::class, 'resendVerificationEmail']
 )->middleware(['auth:sanctum', 'throttle:6,1'])->name('verification.send');
 
-
 Route::post(
-    uri:'/forgot-password',
+    uri: '/forgot-password',
     action: [AuthenticationController::class, 'forgotPassword']
 )->middleware('guest')->name('password.email');
 
@@ -40,6 +38,6 @@ Route::get('/reset-password/{token}', function (string $token) {
 })->middleware('guest')->name('password.reset');
 
 Route::post(
-    uri:'/update-password',
+    uri: '/update-password',
     action: [AuthenticationController::class, 'updatePassword']
 )->middleware('guest')->name('password.update');
