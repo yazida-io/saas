@@ -15,7 +15,13 @@
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 </head>
-<body>
-    @yield('content')
+<body class="h-screen w-screen overflow-x-hidden">
+    <x-navbar />
+
+    <main class="bg-white min-h-full">
+        @yield('content')
+    </main>
+
+    <x-footer />
 </body>
 </html>

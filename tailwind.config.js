@@ -12,9 +12,23 @@ export default {
         extend: {
             container: {
                 center: true,
+            },
+            colors: {
+                primary: {
+                    light: "#D1C4E9",
+                    dark: "#281267",
+                    DEFAULT: "#673AB7",
+                    text: "#161616"
+                },
+                secondary: {
+                    DEFAULT: "#FF5722",
+                    text: "#757575"
+                }
             }
         },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/typography'),
+    ],
 }
 
