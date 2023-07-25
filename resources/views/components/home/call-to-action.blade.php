@@ -3,7 +3,7 @@
         <div class="text-center space-y-7">
             <div class="space-y-2">
                 <p class="text-base">More than a streaming service</p>
-                <h2 class="text-5xl font-bold text-white">
+                <h2 class="text-5xl font-bold dark:text-white">
                     Elevate your sound <br/>
                     experience with Tonality
                 </h2>

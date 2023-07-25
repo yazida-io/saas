@@ -1,8 +1,8 @@
 <section class="py-20">
-    <div class="container rounded-xl bg-slate-500/20 h-80 grid grid-cols-2 overflow-hidden">
+    <div class="container rounded-xl dark:bg-slate-500/20 bg-indigo-800/20 h-80 grid grid-cols-2 overflow-hidden">
         <div class="flex-center">
             <div class="p-7 flex items-start justify-center flex-col max-w-xl space-y-3">
-                <h2 class="text-5xl font-extrabold text-white">
+                <h2 class="text-5xl font-extrabold dark:text-white">
                     Easy integrations with 170+ tools
                 </h2>
                 <p class="text-xl">

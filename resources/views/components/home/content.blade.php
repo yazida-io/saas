@@ -1,7 +1,7 @@
 <section class="py-20">
     <div class="container space-y-20">
         <div class="text-center mx-auto max-w-2xl space-y-5">
-            <h2 class="text-5xl font-extrabold text-white">
+            <h2 class="text-5xl font-extrabold dark:text-white">
                 Anywhere, any moment
             </h2>
 
@@ -22,7 +22,7 @@
 
                         <span
                             class="
-                            absolute -bottom-[3px] w-2/3 h-[5px] bg-indigo-400 rounded-xl
+                            absolute -bottom-[3px] w-2/3 h-[5px] bg-rose-500 rounded-xl
                             @if($loop->first) block @else hidden group-hover:block @endif
                             "
                         ></span>
@@ -31,9 +31,9 @@
             </div>
 
             <div class="px-10">
-                <div class="h-[500px] w-full rounded grid grid-cols-2 bg-slate-400/20">
+                <div class="h-[500px] w-full rounded grid grid-cols-2 dark:bg-slate-400/20 bg-indigo-800/20">
                     <div class="p-10 max-w-xl flex justify-center items-start flex-col gap-4">
-                        <h3 class="text-3xl font-bold text-white">
+                        <h3 class="text-3xl font-bold dark:text-white">
                             You bring the passion. <br/>
                             We bring the music.
                         </h3>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,7 +38,7 @@
     </script>
 
 </head>
-<body class="h-screen w-screen overflow-x-hidden bg-white dark:bg-black dark:text-slate-400">
+<body class="h-screen w-screen overflow-x-hidden text-black bg-white dark:bg-black dark:text-slate-400">
     <x-navbar />
 
     <main class="min-h-full pt-20">

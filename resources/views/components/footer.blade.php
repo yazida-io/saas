@@ -1,6 +1,6 @@
-<footer class="border-t border-slate-200/20 bg-black">
+<footer class="border-t dark:border-slate-200/20 border-indigo-800/20">
     <div class="container">
-        <div class="flex justify-between items-center py-10 border-b border-slate-200/10">
+        <div class="flex justify-between items-center py-10 border-b dark:border-slate-200/10 border-indigo-800/20">
             <div class="flex-center gap-4">
                 @foreach($links as $link)
                     <a href="{{ route($link['route'] ?? 'home') }}" class="px-4 py-2 hover:text-indigo-800">

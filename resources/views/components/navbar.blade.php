@@ -1,5 +1,5 @@
 <header
-    class="fixed left-0 right-0 top-0 z-40 backdrop-blur-3xl bg-slate-200/20 dark:bg-black/20 border-b border-slate-200/20">
+    class="fixed left-0 right-0 top-0 z-40 backdrop-blur-3xl bg-slate-200/20 dark:bg-indigo-800/20 border-b dark:border-slate-200/20 border-indigo-800/10">
     <nav class="container flex justify-between items-center">
         <a href="{{ route('home')  }}">
             <x-logo/>
@@ -25,7 +25,11 @@
         <div class="flex-center gap-4">
             <a
                 href="{{ route('auth.sign-in') }}"
-                class="px-4 py-2 text-slate-200 hover:text-opacity-70 border-2 hover:border-slate-200/70 border-slate-200"
+                class="
+                px-4 py-2 border-2
+                dark:text-slate-200 dark:hover:text-opacity-70 dark:hover:border-slate-200/70 dark:border-slate-200
+                text-indigo-800 hover:text-opacity-70 border-indigo-800
+                "
             >
                 Login
             </a>

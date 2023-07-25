@@ -2,7 +2,7 @@
     <div class="col-span-3 flex-center flex-col">
         <div class="w-3/5 space-y-14">
             <div class="space-y-4">
-                <h2 class="text-5xl text-slate-200">
+                <h2 class="text-5xl dark:text-slate-200">
                     You bring the passion. <br />
                     We bring the music.
                 </h2>
@@ -14,23 +14,23 @@
             <div class="grid grid-cols-2 gap-4 w-full">
                 @foreach($features as $feature)
                     <div
-                        class="space-y-5 p-7 rounded-xl relative overflow-hidden
+                        class="space-y-5 p-7 rounded-xl relative
                         @if($loop->first) bg-indigo-800 text-white border-indigo-800 @else bg-slate-500/20 border-slate-400/20 border-2 @endif
                     ">
-                        <h6 class="text-xl font-bold text-slate-100">
+                        <h6 class="text-xl font-bold dark:text-slate-100">
                             {{$feature['title']}}
                         </h6>
                         <p>{{$feature['description']}}</p>
 
                         @if($loop->first)
-                            <span class="absolute bottom-0 w-1/2 h-2 bg-white/20 rounded-xl"></span>
+                            <span class="absolute -bottom-1 w-1/2 h-2 bg-rose-500 rounded-xl"></span>
                         @endif
                     </div>
                 @endforeach
             </div>
         </div>
     </div>
-    <div class="col-span-2 bg-slate-200/10 relative flex-center">
+    <div class="col-span-2 bg-indigo-800/10 dark:bg-slate-200/10 relative flex-center">
         <div class="h-2/3 w-full bg-white -left-40 absolute">
             <img
                 class="w-full h-full object-cover"

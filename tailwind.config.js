@@ -15,7 +15,7 @@ export default {
                 center: true,
             },
             colors: {
-                black: "#020714",
+                black: "#020924",
                 primary: {
                     light: "#D1C4E9",
                     dark: "#281267",
