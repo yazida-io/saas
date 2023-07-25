@@ -1,7 +1,8 @@
-<header class="sticky top-0 backdrop-blur-3xl bg-white/20 shadow">
-    <nav class="container flex justify-between items-center text-primary">
+<header
+    class="fixed left-0 right-0 top-0 z-40 backdrop-blur-3xl bg-slate-200/20 dark:bg-black/20 border-b border-slate-200/20">
+    <nav class="container flex justify-between items-center">
         <a href="{{ route('home')  }}">
-            <x-logo />
+            <x-logo/>
         </a>
 
         <div class="flex-center gap-4">
@@ -9,8 +10,11 @@
                 <a
                     href="{{ route($link['route'] ?? 'home') }}"
                     class="
-                    px-4 py-4 hover:text-primary text-primary-text border-b-2 hover:border-primary
-                    {{ request()->routeIs($link['route'] ?? 'home') ? 'text-primary border-primary' : ' border-transparent' }}
+                    px-4 py-4 border-b-2
+                    {{ request()->routeIs($link['route'] ?? 'home') ?
+                        'text-indigo-800 border-indigo-800' :
+                        'hover:text-indigo-800 border-transparent hover:border-indigo-800'
+                    }}
                     "
                 >
                     {{ $link['name'] }}
@@ -21,13 +25,16 @@
         <div class="flex-center gap-4">
             <a
                 href="{{ route('auth.sign-in') }}"
-                class="px-4 py-2 text-primary hover:text-primary border-2 border-primary/70 hover:border-primary"
-            >Login</a>
+                class="px-4 py-2 text-slate-200 hover:text-opacity-70 border-2 hover:border-slate-200/70 border-slate-200"
+            >
+                Login
+            </a>
             <a
                 href="{{ route('auth.sign-up') }}"
-                class="px-4 py-2 text-white bg-primary border-primary hover:text-primary-text border-2"
-            >Register</a>
+                class="px-4 py-2 text-white bg-indigo-800 border-indigo-800 hover:text-opacity-70 border-2"
+            >
+                Register
+            </a>
         </div>
     </nav>
-
 </header>

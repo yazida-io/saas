@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,11 +14,34 @@
 
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
+
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+
+        /*
+
+        // Whenever the user explicitly chooses light mode
+        localStorage.theme = 'light'
+
+        // Whenever the user explicitly chooses dark mode
+        localStorage.theme = 'dark'
+
+        // Whenever the user explicitly chooses to respect the OS preference
+        localStorage.removeItem('theme')
+
+        */
+    </script>
+
 </head>
-<body class="h-screen w-screen overflow-x-hidden">
+<body class="h-screen w-screen overflow-x-hidden bg-white dark:bg-black dark:text-slate-400">
     <x-navbar />
 
-    <main class="bg-white min-h-full">
+    <main class="min-h-full pt-20">
         @yield('content')
     </main>
 

@@ -10,7 +10,24 @@ class Footer extends Component
     public function render(): View
     {
         return view('components.footer', [
-            'links' => Navbar::getLinks(),
+            'links' => $this->getLinks(),
+            'terms' => $this->getTerms(),
         ]);
+    }
+
+    private function getLinks(): array
+    {
+        return [
+            ['name' => 'About', 'route' => 'pages.about'],
+            ['name' => 'Contact', 'route' => 'pages.contact'],
+        ];
+    }
+
+    private function getTerms(): array
+    {
+        return [
+            ['name' => 'Privacy policy', 'route' => route('pages.dynamic', ['page' => 'privacy'])],
+            ['name' => 'Term of service', 'route' => route('pages.dynamic', ['page' => 'terms'])],
+        ];
     }
 }

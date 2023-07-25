@@ -14,7 +14,7 @@ class PageFactory extends Factory
             'slug' => $this->faker->slug(),
             'title' => $this->faker->sentence(),
             'description' => $this->faker->sentence(),
-            'content' => $this->faker->paragraphs(3, true)
+            'content' => $this->faker->paragraphs(3, true),
         ];
     }
 }

@@ -14,7 +14,6 @@ class Navbar extends Component
         ]);
     }
 
-
     public static function getLinks()
     {
         return [
@@ -26,7 +25,6 @@ class Navbar extends Component
                 'name' => 'Pricing',
                 'route' => 'pages.pricing',
             ],
-
             [
                 'name' => 'About',
                 'route' => 'pages.about',
@@ -34,7 +32,7 @@ class Navbar extends Component
             [
                 'name' => 'Contact',
                 'route' => 'pages.contact',
-            ]
+            ],
         ];
     }
 }
