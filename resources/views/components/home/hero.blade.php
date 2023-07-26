@@ -11,15 +11,9 @@
 
         <div class="flex-1 flex flex-col justify-between items-start gap-y-40">
             <div class="max-w-2xl space-y-7">
-                <h1 class="text-7xl">
-                    A world of music in your pocket.
-                </h1>
-                <p class="text-xl">
-                    With over 80 million tracks, exclusive releases, and tons of interviews and music videos, Tonality
-                    brings you closer to the artists you listen to.
-                </p>
-
-                <x-common.get-started/>
+                <h1 class="text-7xl dark:text-white">{{ __('pages/home.hero.headline')  }}</h1>
+                <p class="text-xl">{{ __('pages/home.hero.subheadline')  }}</p>
+                <x-common.get-started text="{{ __('pages/home.hero.cta') }}"/>
             </div>
 
             <div class="w-full dark:bg-slate-400/20 bg-indigo-800/20 flex items-stretch gap-1">

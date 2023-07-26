@@ -26,6 +26,16 @@ export default {
                     DEFAULT: "#FF5722",
                     text: "#757575"
                 }
+            },
+            keyframes: {
+                wiggle: {
+                    '0%': { transform: 'rotate(-3deg) translateY(-100px)' },
+                    '50%': { transform: 'rotate(0deg) translateY(0px)' },
+                    '100%': { transform: 'rotate(-3deg) scale(1) translateY(-100px)' },
+                }
+            },
+            animation: {
+                wiggle: 'wiggle 11s ease-in-out infinite',
             }
         },
     },

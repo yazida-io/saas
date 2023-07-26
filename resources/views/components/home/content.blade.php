@@ -16,9 +16,12 @@
                 @foreach($features as $feature)
                     <button class="flex-center gap-2 px-4 py-2 relative group">
                         <span
-                            class="w-10 h-10 @if($loop->first) bg-indigo-400/10 @else bg-white/10 group-hover:bg-indigo-400/10 @endif"
+                            class="w-10 h-10 @if($loop->first) bg-rose-400/10 @else bg-white/10 group-hover:bg-rose-400/10 @endif"
                         ></span>
-                        <span>{{ $feature['title'] }}</span>
+
+                        <span class="@if($loop->first) text-rose-400 @endif">
+                            {{ $feature['title'] }}
+                        </span>
 
                         <span
                             class="

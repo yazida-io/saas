@@ -24,7 +24,6 @@
         }
 
         /*
-
         // Whenever the user explicitly chooses light mode
         localStorage.theme = 'light'
 
@@ -38,7 +37,7 @@
     </script>
 
 </head>
-<body class="h-screen w-screen overflow-x-hidden text-black bg-white dark:bg-black dark:text-slate-400">
+<body class="h-screen w-screen overflow-x-hidden text-black bg-white dark:bg-black dark:text-slate-200">
     <x-navbar />
 
     <main class="min-h-full pt-20">

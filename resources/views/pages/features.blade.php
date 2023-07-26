@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-    <div>
-        <h1 class="text-3xl text-center text-primary">Features</h1>
-    </div>
+    <x-features.main />
+    <x-features.details />
+    <x-home.call-to-action />
 @endsection

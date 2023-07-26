@@ -10,10 +10,12 @@
                 <a
                     href="{{ route($link['route'] ?? 'home') }}"
                     class="
-                    px-4 py-4 border-b-2
+                    px-4 py-4 relative
+                    after:absolute after:bottom-0 after:left-0 after:w-full after:h-1
+                    after:bg-rose-600 after:transition-all after:duration-300 after:ease-in-out after:rounded-xl
                     {{ request()->routeIs($link['route'] ?? 'home') ?
-                        'text-indigo-800 border-indigo-800' :
-                        'hover:text-indigo-800 border-transparent hover:border-indigo-800'
+                        'text-rose-600 border-rose-600  after:shadow-[0_-7px_19px_0px_rgba(200,10,20,0.7)]' :
+                        'hover:text-rose-600 border-transparent hover:border-rose-400  after:opacity-0 hover:after:opacity-7'
                     }}
                     "
                 >
