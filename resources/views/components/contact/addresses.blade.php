@@ -1,6 +1,6 @@
 <section class="container">
     <div
-        class="border-y p-4 border-slate-400/20 grid grid-cols-1 md:grid-cols-2 divide-y md:divide-x md:divide-y-0 divide-amber-50/10">
+        class="border-y p-4 border-slate-400/20 grid grid-cols-1 md:grid-cols-2 divide-y md:divide-x md:divide-y-0 dark:divide-amber-50/10">
         <x-contact.address name="Address">
             <address>
                 <p>

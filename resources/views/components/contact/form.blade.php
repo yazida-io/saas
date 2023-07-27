@@ -92,11 +92,17 @@
             @enderror
         </div>
 
-        <button
-            type="submit"
-            class="block w-full px-4 py-2 text-center text-white bg-indigo-800 bg-opacity-70 hover:bg-opacity-100 focus:bg-indigo-600 transition-all duration-200 ease-in-out"
-        >
-            Send message
-        </button>
+        <div class="space-y-3">
+            <p class="text-sm text-indigo-800/70">
+                We will get back to you as soon as possible
+                <span class="text-xs">🤗</span>
+            </p>
+            <button
+                type="submit"
+                class="block w-full px-4 py-2 text-center text-white bg-indigo-800 hover:bg-opacity-70 focus:bg-indigo-600 transition-all duration-200 ease-in-out"
+            >
+                Send message
+            </button>
+        </div>
     </form>
 </section>

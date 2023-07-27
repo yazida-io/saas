@@ -3,7 +3,7 @@
         https://dribbble.com/shots/18559477-Contact-form-Mattered
     </a>
     <div class="space-y-7 text-center">
-        <p class="animate-wiggle text-7xl"> ✨ </p>
+        <p class="animate-wiggle text-7xl hidden"> ✨ </p>
 
         <h1 class="text-7xl font-bold dark:text-white">
             Love to hear from you, <br/>

@@ -10,7 +10,7 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet"/>
 
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
@@ -38,12 +38,14 @@
 
 </head>
 <body class="h-screen w-screen overflow-x-hidden text-black bg-white dark:bg-black dark:text-slate-200">
-    <x-navbar />
+    <x-navbar/>
 
     <main class="min-h-full pt-20">
         @yield('content')
     </main>
 
-    <x-footer />
+    <x-footer/>
+
+    @stack('scripts')
 </body>
 </html>
