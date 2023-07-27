@@ -4,6 +4,10 @@
             Ethos - 5 Things we value
         </h2>
 
+        <p>
+            Sharing values that bring people together is a great way to build a strong community.
+        </p>
+
         <div class="grid grid-cols-1 md:grid-cols-5 gap-7">
             <x-about.value title="Always be nice and respectful to others" icon="🤗" />
             <x-about.value title="Believe in dreams will becoming a reality" icon="💡" />
