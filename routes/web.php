@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Actions\ContactUsActionController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DynamicPageController;
 use Illuminate\Support\Facades\Route;
@@ -9,6 +10,7 @@ Route::view('/', 'pages.home')->name('home');
 Route::view('about', 'pages.about')->name('pages.about');
 
 Route::view('contact', 'pages.contact')->name('pages.contact');
+Route::post('contact', ContactUsActionController::class)->name('actions.contact-us');
 
 Route::view('features', 'pages.features')->name('pages.features');
 

@@ -1,5 +1,9 @@
 <section class="pb-20">
-    <form action="#" method="POST" class="container max-w-sm space-y-7">
+    <form
+        action="{{ route('actions.contact-us') }}"
+        method="post"
+        class="container max-w-sm space-y-7"
+    >
         @csrf
 
         <div class="flex flex-col group">
@@ -29,7 +33,7 @@
                 placeholder="Your name"
             />
             @error('name')
-            <p>{{ $message }}</p>
+            <p class="text-rose-500">{{ $message }}</p>
             @enderror
         </div>
 
@@ -60,7 +64,7 @@
                 placeholder="Your email address"
             />
             @error('email')
-            <p>{{ $message }}</p>
+            <p class="text-rose-500">{{ $message }}</p>
             @enderror
         </div>
 
@@ -88,7 +92,7 @@
                 placeholder="Your message"
             >{{ old('message') }}</textarea>
             @error('message')
-            <p>{{ $message }}</p>
+            <p class="text-rose-500">{{ $message }}</p>
             @enderror
         </div>
 
