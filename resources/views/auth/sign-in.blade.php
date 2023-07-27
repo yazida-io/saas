@@ -2,7 +2,7 @@
 
 @section('content')
     <h1
-        class="text-3xl font-semibold text-gray-900 text-center mt-8"
+        class="text-3xl font-semibold text-center mt-8"
     >
         Sign In
     </h1>

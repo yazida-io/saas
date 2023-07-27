@@ -93,7 +93,7 @@
         </div>
 
         <div class="space-y-3">
-            <p class="text-sm text-indigo-800/70">
+            <p class="text-sm text-indigo-800/70 dark:text-slate-200/30">
                 We will get back to you as soon as possible
                 <span class="text-xs">🤗</span>
             </p>

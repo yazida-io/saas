@@ -1,6 +1,7 @@
 <section
     class="relative pt-20 overflow-hidden
            before:absolute before:top-20 before:-left-1/2 before:transform before:translate-x-1/2 before:w-2/3 before:h-full before:bg-indigo-800/10
+              before:z-[-1]
 ">
     <div class="container py-20 grid md:grid-cols-2 grid-cols-1">
         <div class="space-y-20">
