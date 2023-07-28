@@ -10,6 +10,7 @@ class Plans extends Component
     public function render(): View
     {
         $plans = $this->getPlans();
+
         return view('components.pricing.plans', compact('plans'));
     }
 
@@ -17,7 +18,7 @@ class Plans extends Component
     {
         return [
             [
-                "color" => "-",
+                'color' => '-',
                 'name' => 'Basic',
                 'description' => 'Al chatbot, personalized recommendations',
                 'price' => 7.99,
@@ -29,7 +30,7 @@ class Plans extends Component
                 ],
             ],
             [
-                "color" => "#6A8E7F",
+                'color' => '#6A8E7F',
                 'name' => 'Gold 🌟',
                 'description' => 'Advanced Al chatbot, priority support, analytics dashboard',
                 'price' => 19.9,
@@ -42,7 +43,7 @@ class Plans extends Component
                 ],
             ],
             [
-                "color" => "#f9a03f",
+                'color' => '#f9a03f',
                 'name' => 'Platinum',
                 'description' => 'For a large business or organization.',
                 'price' => 49.99,
