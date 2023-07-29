@@ -25,22 +25,42 @@
         </div>
 
         <div class="flex-center gap-4">
-            <a
-                href="{{ route('auth.sign-in') }}"
-                class="
+            @guest
+                <a
+                    href="{{ route('auth.sign-in') }}"
+                    class="
                 px-4 py-2 border-2
                 dark:text-slate-200 dark:hover:text-opacity-70 dark:hover:border-slate-200/70 dark:border-slate-200
                 text-indigo-800 hover:text-opacity-70 border-indigo-800
                 "
-            >
-                Login
-            </a>
-            <a
-                href="{{ route('auth.sign-up') }}"
-                class="px-4 py-2 text-white bg-indigo-800 border-indigo-800 hover:text-opacity-70 border-2"
-            >
-                Register
-            </a>
+                >
+                    Login
+                </a>
+                <a
+                    href="{{ route('auth.sign-up') }}"
+                    class="px-4 py-2 text-white bg-indigo-800 border-indigo-800 hover:text-opacity-70 border-2"
+                >
+                    Register
+                </a>
+            @else
+                <a
+                    href="{{ route('dashboard.index') }}"
+                    class="
+                    flex-center gap-2
+                    px-3 py-1 text-white bg-indigo-800 border-indigo-800 hover:text-opacity-70 border-2
+                    ">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4s-4 1.79-4 4s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                    </span>
+                    <span class="">
+                        {{ auth()->user()->name }}
+                    </span>
+                </a>
+            @endguest
+
         </div>
     </nav>
 </header>
