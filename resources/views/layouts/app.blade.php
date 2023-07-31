@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>
-        @yield('title', 'Saas') - {{ config('app.name') }}
+        @yield('title', 'Dashboard')
     </title>
 
     <!-- Fonts -->
@@ -24,16 +24,18 @@
         }
     </script>
 
+    @bukStyles
+    @bukScripts
 </head>
-<body class="h-screen w-screen overflow-x-hidden text-black bg-white dark:bg-black dark:text-slate-200">
-    <x-navbar/>
+<body class="
+h-screen w-screen overflow-hidden text-black bg-white dark:bg-black dark:text-slate-200 flex-center
+">
+<x-app.drawer/>
 
-    <main class="min-h-full pt-20">
-        @yield('content')
-    </main>
+<main class="flex-1 dark:bg-white/5 bg-slate-100 overflow-hidden h-screen">
+    @yield('content')
+</main>
 
-    <x-footer/>
-
-    @stack('scripts')
+@stack('scripts')
 </body>
 </html>

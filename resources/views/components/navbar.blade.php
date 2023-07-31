@@ -44,7 +44,7 @@
                 </a>
             @else
                 <a
-                    href="{{ route('dashboard.index') }}"
+                    href="{{ route('app.index') }}"
                     class="
                     flex-center gap-2
                     px-3 py-1 text-white bg-indigo-800 border-indigo-800 hover:text-opacity-70 border-2

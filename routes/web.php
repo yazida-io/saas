@@ -24,13 +24,13 @@ Route::view('sign-up', 'auth.sign-up')->name('auth.sign-up');
 Route::controller(AuthController::class)->group(function () {
     Route::post('sign-in', 'authenticate')->name('auth.authenticate');
     Route::post('sign-up', 'register')->name('auth.register');
-    Route::any('logout','logout')->middleware('auth')->name('auth.logout');
+    Route::any('logout', 'logout')->middleware('auth')->name('auth.logout');
 });
 
-Route::view('dashboard', 'dashboard.index')
-    ->middleware('auth')
-    ->name('dashboard.index');
+/*
 
-Route::view('app/{any?}', 'app')
+Route::view('dashboard/{any?}', 'app')
     ->where('any', '.*')
     ->name('app');
+
+*/
