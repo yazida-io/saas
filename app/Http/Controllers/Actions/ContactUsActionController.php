@@ -12,6 +12,6 @@ class ContactUsActionController extends Controller
     {
         Contact::create($request->validated());
 
-        return redirect()->route('home');
+        return redirect()->route('web.home');
     }
 }

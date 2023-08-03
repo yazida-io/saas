@@ -3,10 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Authentication\LoginRequest;
+use App\Http\Requests\Authentication\RegisterRequest;
+use App\Services\Contracts\AuthenticationContract;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    public function __construct(private readonly AuthenticationContract $service)
+    {
+    }
+
     public function authenticate(LoginRequest $request)
     {
         $credentials = $request->only('email', 'password');
@@ -20,8 +27,14 @@ class AuthController extends Controller
         return redirect()->route('app.index');
     }
 
-    public function register()
+    public function register(RegisterRequest $request)
     {
+        $user = $this->service->register($request->validated());
+
+        Auth::login($user);
+
+        event(new Registered($user));
+
         return redirect()->route('home');
     }
 
@@ -29,6 +42,6 @@ class AuthController extends Controller
     {
         Auth::logout();
 
-        return redirect()->route('home');
+        return redirect()->route('web.home');
     }
 }

@@ -60,68 +60,19 @@
                 >
                     @csrf
 
-                    <div class="flex flex-col group">
-                        <label for="email">
-                <span class="
-                dark:group-focus-within:text-indigo-300
-                group-focus-within:text-indigo-800
-                ">
-                    Email
-                </span>
-                            <span class="text-rose-500">*</span>
-                        </label>
-                        <input
-                            class="
-                bg-indigo-400/10 px-2 py-2 no-ring
-                group-focus-within:bg-indigo-200/10 group-focus-within:border-indigo-800/70
-                dark:bg-slate-600/10
-                border border-indigo-400/10
-                dark:border-slate-900/20
-                dark:group-focus-within:border-indigo-800/70
-                transition-colors duration-200 ease-in-out
-                "
-                            type="email"
-                            name="email"
-                            id="email"
-                            value="{{ old('email') }}"
-                            placeholder="Your email"
-                        />
-                        @error('email')
-                        <p class="text-rose-500">{{ $message }}</p>
-                        @enderror
-                    </div>
+                    <x-common.labeled-input
+                        label="Email"
+                        name="email"
+                        type="email"
+                        placeholder="Your email"
+                    />
 
-
-                    <div class="flex flex-col group">
-                        <label for="password">
-                <span class="
-                dark:group-focus-within:text-indigo-300
-                group-focus-within:text-indigo-800
-                ">
-                    Password
-                </span>
-                            <span class="text-rose-500">*</span>
-                        </label>
-                        <input
-                            class="
-                bg-indigo-400/10 px-2 py-2 no-ring
-                group-focus-within:bg-indigo-200/10 group-focus-within:border-indigo-800/70
-                dark:bg-slate-600/10
-                border border-indigo-400/10
-                dark:border-slate-900/20
-                dark:group-focus-within:border-indigo-800/70
-                transition-colors duration-200 ease-in-out
-                "
-                            type="password"
-                            name="password"
-                            id="password"
-                            value=""
-                            placeholder="Your password"
-                        />
-                        @error('password')
-                        <p class="text-rose-500">{{ $message }}</p>
-                        @enderror
-                    </div>
+                    <x-common.labeled-input
+                        label="Password"
+                        name="password"
+                        type="password"
+                        placeholder="Your password"
+                    />
 
                     <div class="flex justify-between items-center group">
                         <div>
@@ -148,12 +99,9 @@
 
 
                     <div class="space-y-3">
-                        <button
-                            type="submit"
-                            class="block w-full px-4 py-2 text-center text-white bg-indigo-800 hover:bg-opacity-70 focus:bg-indigo-600 transition-all duration-200 ease-in-out"
-                        >
-                            Sign in
-                        </button>
+
+                        <x-common.action-button text="Sign in" />
+
                         <p class="text-sm text-indigo-800/70 dark:text-slate-200/30 text-center">
                             Don’t have an account yet?
                             <a
