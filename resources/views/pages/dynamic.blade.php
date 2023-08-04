@@ -1,5 +1,7 @@
 @extends('layouts.default')
 
+@section('title', $page->title)
+
 @section('content')
     <section class="prose lg:prose-xl container">
         <h1>

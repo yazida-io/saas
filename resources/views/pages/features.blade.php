@@ -1,5 +1,7 @@
 @extends('layouts.default')
 
+@section('title', 'Features')
+
 @section('content')
     <x-features.main />
     <x-features.details />
