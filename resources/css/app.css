@@ -2,7 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    @apply antialiased;
+    font-family: figtree, 'Nunito', sans-serif;
+}
 
 .flex-center {
     @apply flex items-center justify-center;
+}
+
+.container {
+    @apply mx-auto max-w-[1200px] px-4 md:px-0;
+}
+
+.no-ring {
+    @apply ring-0 ring-offset-0 ring-offset-transparent ring-transparent focus:ring-0 focus:ring-offset-0 focus:ring-offset-transparent focus:ring-transparent  focus:outline-none;
 }

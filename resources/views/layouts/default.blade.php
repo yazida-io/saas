@@ -10,12 +10,30 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet"/>
 
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
+
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+
 </head>
-<body>
-    @yield('content')
+<body class="h-screen w-screen overflow-x-hidden text-black bg-white dark:bg-black dark:text-slate-200">
+    <x-navbar/>
+
+    <main class="min-h-full pt-20">
+        @yield('content')
+    </main>
+
+    <x-footer/>
+
+    @stack('scripts')
 </body>
 </html>
