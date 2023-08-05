@@ -55,7 +55,7 @@ class Drawer extends Component
             ],
             [
                 'name' => 'Settings',
-                'route' => 'app.settings',
+                'route' => 'app.settings.index',
                 'icon' => 'icons.settings',
             ],
             [

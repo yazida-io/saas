@@ -1,5 +1,5 @@
 <div class="flex flex-col group">
-    <label for="{{ $name }}">
+    <label for="{{ $id ?? $name }}">
         <span class="dark:group-focus-within:text-indigo-300 group-focus-within:text-indigo-800">
             {{ $label }}
         </span>
@@ -18,8 +18,8 @@
         "
         type="{{ $type }}"
         name="{{ $name }}"
-        id="{{ $name }}"
-        value="{{ old($name) }}"
+        id="{{ $id ?? $name }}"
+        value="{{ $value ?? old($name) }}"
         placeholder="{{ $placeholder }}"
         {{ ($required ?? false) ? 'required' : '' }}
     />

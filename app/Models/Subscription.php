@@ -8,5 +8,5 @@ class Subscription extends \Laravel\Cashier\Subscription
 {
     use SoftDeletes;
 
-    protected $fillable = ['code', 'user_id'];
+    const DEFAULT_SUBSCRIPTION = 'default';
 }

@@ -18,7 +18,7 @@
         @foreach($plans as $plan)
             @php $plan = (object) $plan; @endphp
             <x-pricing.plan-card
-                :best-value="$plan->bestValue ?? false"
+                :best-value="$plan->best_offer ?? false"
                 title="{{ $plan->name }}"
                 price="{{ $plan->price }}"
                 description="{{ $plan->description }}"

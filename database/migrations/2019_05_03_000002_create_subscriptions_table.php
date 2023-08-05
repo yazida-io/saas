@@ -14,12 +14,7 @@ return new class extends Migration
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
 
-            $table->string('code')->unique();
             $table->foreignId('user_id')->constrained();
-
-            // TODO: Add memberships table if needed
-            // $table->foreignId('membership_id')->constrained();
-
             $table->string('name');
             $table->string('stripe_id')->unique();
             $table->string('stripe_status');

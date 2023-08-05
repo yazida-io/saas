@@ -32,7 +32,7 @@ h-screen w-screen overflow-hidden text-black bg-white dark:bg-black dark:text-sl
 ">
 <x-app.drawer/>
 
-<main class="flex-1 dark:bg-white/5 bg-slate-100 overflow-hidden h-screen">
+<main class="flex-1 dark:bg-white/5 bg-slate-100 overflow-x-hidden overflow-y-scroll h-screen">
     @yield('content')
 </main>
 

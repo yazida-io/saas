@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\App\Settings\SubscriptionController;
+
 Route::view('/', 'app.index')->name('app.index');
 
 // Top links
@@ -10,4 +12,16 @@ Route::view('invoices', 'app.index')->name('app.invoices');
 // Bottom links
 Route::view('announcements', 'app.announcements')->name('app.announcements');
 Route::view('help', 'app.help')->name('app.help');
-Route::view('settings', 'app.settings')->name('app.settings');
+
+Route::prefix('settings')->name('app.settings.')->group(function () {
+    Route::view('/', 'app.settings.index')->name('index');
+    Route::view('profile', 'app.settings.profile')->name('profile');
+    Route::view('password', 'app.settings.passwords')->name('passwords');
+    Route::view('notifications', 'app.settings.notifications')->name('notifications');
+
+    // Subscriptions
+    Route::withoutMiddleware(['subscribed'])->group(function () {
+        Route::get('subscriptions', [SubscriptionController::class, 'index'])->name('subscriptions');
+        Route::post('subscriptions', [SubscriptionController::class, 'subscribe'])->name('subscriptions.subscribe');
+    });
+});
