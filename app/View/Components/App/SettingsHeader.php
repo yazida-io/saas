@@ -33,7 +33,7 @@ class SettingsHeader extends Component
                 'icon' => 'bell',
             ],
             (object) [
-                'name' => 'Subscriptions',
+                'name' => 'Billing',
                 'route' => 'app.settings.subscriptions',
                 'icon' => 'credit-card',
             ],

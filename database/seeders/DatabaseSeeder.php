@@ -20,10 +20,11 @@ class DatabaseSeeder extends Seeder
 
         // \App\Models\User::factory(10)->create();
 
-        User::factory()->create([
+        $user = User::factory()->create([
             'name' => 'Mouctar DIALLO',
             'email' => 'mouctar@yazida.io',
             'password' => Hash::make('password'),
         ]);
+        $user->createOrGetStripeCustomer();
     }
 }

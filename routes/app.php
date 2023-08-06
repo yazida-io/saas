@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\App\Settings\InvoiceController;
 use App\Http\Controllers\App\Settings\SubscriptionController;
 
 Route::view('/', 'app.index')->name('app.index');
@@ -20,8 +21,11 @@ Route::prefix('settings')->name('app.settings.')->group(function () {
     Route::view('notifications', 'app.settings.notifications')->name('notifications');
 
     // Subscriptions
-    Route::withoutMiddleware(['subscribed'])->group(function () {
-        Route::get('subscriptions', [SubscriptionController::class, 'index'])->name('subscriptions');
+    Route::withoutMiddleware(['subscribed'])->prefix('billing')->group(function () {
+        Route::view('/', 'app.settings.billing')->name('subscriptions');
+
         Route::post('subscriptions', [SubscriptionController::class, 'subscribe'])->name('subscriptions.subscribe');
+        Route::get('invoices/{invoiceId}/download', [InvoiceController::class, 'download'])
+            ->name('billing.invoices.download');
     });
 });

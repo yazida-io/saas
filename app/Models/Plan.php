@@ -23,4 +23,9 @@ class Plan extends Model
         'features' => 'array',
         'best_offer' => 'boolean',
     ];
+
+    public static function getByStripeId(string $stripeId): self
+    {
+        return static::where('stripe_price_id', $stripeId)->firstOrFail();
+    }
 }
