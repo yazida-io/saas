@@ -19,7 +19,7 @@ class SettingsHeader extends Component
         return [
             (object) [
                 'name' => 'Profile',
-                'route' => 'app.settings.profile',
+                'route' => 'app.settings.profile.index',
                 'icon' => 'user',
             ],
             (object) [

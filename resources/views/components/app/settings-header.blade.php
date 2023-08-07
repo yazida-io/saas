@@ -1,4 +1,4 @@
 <x-app.page-header
-    title="Settings"
+    :title="__('settings/index.title')"
     :links="$links ?? []"
 />

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\App\Settings\InvoiceController;
+use App\Http\Controllers\App\Settings\ProfileController;
 use App\Http\Controllers\App\Settings\SubscriptionController;
 
 Route::view('/', 'app.index')->name('app.index');
@@ -16,7 +17,6 @@ Route::view('help', 'app.help')->name('app.help');
 
 Route::prefix('settings')->name('app.settings.')->group(function () {
     Route::view('/', 'app.settings.index')->name('index');
-    Route::view('profile', 'app.settings.profile')->name('profile');
     Route::view('password', 'app.settings.passwords')->name('passwords');
     Route::view('notifications', 'app.settings.notifications')->name('notifications');
 
@@ -27,5 +27,10 @@ Route::prefix('settings')->name('app.settings.')->group(function () {
         Route::post('subscriptions', [SubscriptionController::class, 'subscribe'])->name('subscriptions.subscribe');
         Route::get('invoices/{invoiceId}/download', [InvoiceController::class, 'download'])
             ->name('billing.invoices.download');
+    });
+
+    Route::prefix('profile')->controller(ProfileController::class)->name('profile.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'updateUserInfo')->name('update');
     });
 });

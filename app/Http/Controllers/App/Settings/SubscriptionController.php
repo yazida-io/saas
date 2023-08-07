@@ -28,6 +28,8 @@ class SubscriptionController extends Controller
             prices: $plan->stripe_price_id
         )->create();
 
+        $user->update(['plan_id' => $plan->id]);
+
         event(new UserSubscriptionConfirmed($user, $plan, $subscription->invoice()));
 
         return response()->json([

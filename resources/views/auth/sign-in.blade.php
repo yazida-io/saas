@@ -52,68 +52,66 @@
                 <div class="flex-1 border border-indigo-800/70 dark:border-slate-200/30"></div>
             </div>
 
-            <div>
-                <form
-                    action="{{ route('auth.authenticate') }}"
-                    method="post"
-                    class="space-y-7"
-                >
-                    @csrf
+            <form
+                action="{{ route('auth.authenticate') }}"
+                method="post"
+                class="space-y-7"
+            >
+                @csrf
 
-                    <x-common.labeled-input
-                        label="Email"
-                        name="email"
-                        type="email"
-                        placeholder="Your email"
-                    />
+                <x-common.labeled-input
+                    label="Email"
+                    name="email"
+                    type="email"
+                    placeholder="Your email"
+                />
 
-                    <x-common.labeled-input
-                        label="Password"
-                        name="password"
-                        type="password"
-                        placeholder="Your password"
-                    />
+                <x-common.labeled-input
+                    label="Password"
+                    name="password"
+                    type="password"
+                    placeholder="Your password"
+                />
 
-                    <div class="flex justify-between items-center group">
-                        <div>
-                            <input
-                                type="checkbox"
-                                name="remember"
-                                id="remember"
-                            />
-                            <label for="remember">
+                <div class="flex justify-between items-center group">
+                    <div>
+                        <input
+                            type="checkbox"
+                            name="remember"
+                            id="remember"
+                        />
+                        <label for="remember">
                             <span class=" dark:group-focus-within:text-indigo-300 group-focus-within:text-indigo-800">
                                 Remember me
                             </span>
-                            </label>
-                        </div>
-                        <div>
-                            <a
-                                href="{{ '#' }}"
-                                class="text-indigo-800/70 dark:text-slate-200/70 hover:text-indigo-800/80 dark:hover:text-slate-200/80 transition-colors duration-200 ease-in-out"
-                            >
-                                Forgot password?
-                            </a>
-                        </div>
+                        </label>
                     </div>
-
-
-                    <div class="space-y-3">
-
-                        <x-common.action-button text="Sign in" />
-
-                        <p class="text-sm text-indigo-800/70 dark:text-slate-200/30 text-center">
-                            Don’t have an account yet?
-                            <a
-                                href="{{ route('auth.sign-up') }}"
-                                class="text-indigo-800/70 dark:text-slate-200/70 hover:text-indigo-800/80 dark:hover:text-slate-200/80 transition-colors duration-200 ease-in-out"
-                            >
-                                Sign up
-                            </a>
-                        </p>
+                    <div>
+                        <a
+                            href="{{ '#' }}"
+                            class="text-indigo-800/70 dark:text-slate-200/70 hover:text-indigo-800/80 dark:hover:text-slate-200/80 transition-colors duration-200 ease-in-out"
+                        >
+                            Forgot password?
+                        </a>
                     </div>
-                </form>
-            </div>
+                </div>
+
+
+                <div class="space-y-3">
+
+                    <x-common.action-button text="Sign in"/>
+
+                    <p class="text-sm text-indigo-800/70 dark:text-slate-200/30 text-center">
+                        Don’t have an account yet?
+                        <a
+                            href="{{ route('auth.sign-up') }}"
+                            class="text-indigo-800/70 dark:text-slate-200/70 hover:text-indigo-800/80 dark:hover:text-slate-200/80 transition-colors duration-200 ease-in-out"
+                        >
+                            Sign up
+                        </a>
+                    </p>
+                </div>
+            </form>
         </div>
     </section>
 @endsection
