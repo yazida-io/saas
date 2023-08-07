@@ -1,4 +1,4 @@
-<section class="dark:bg-black bg-white">
+<section class="dark:bg-black bg-slate-50">
     <div class="container">
         <div class="flex items-center justify-center py-10">
             <h1 class="text-7xl font-bold">
